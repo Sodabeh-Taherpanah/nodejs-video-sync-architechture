@@ -64,19 +64,17 @@ Running the System
 
 `npm run api `
 
-`````
 3. Start the Worker
 
-```npm run worker```
+`npm run worker`
 
-\*\* Testing the Async Flow
+**Testing the Async Flow**
 
 Send a request using curl or Postman:
 
-```curl -X POST http://localhost:3000/process \
+``````curl -X POST http://localhost:3000/process \
   -H "Content-Type: application/json" \
-  -d '{"filePath": "sample.mp4"}'```
-
+  -d '{"filePath": "sample.mp4"}```
 
 
 Expected API Response
@@ -88,13 +86,12 @@ Expected API Response
 
 Expected Worker logs:
 
-`````
-
-Job received: 12345
+`````Job received: 12345
 Processing video...
 Video processed successfully.```
 
 **Note**
 
 This is a minimal architecture example meant to demonstrate async design patterns.
-It is not a production‑ready video processor.
+
+``````
