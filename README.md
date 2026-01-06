@@ -8,15 +8,7 @@ Here is a small test, focused example showing how to build an asynchronous video
 
 - Non‑blocking async flow → scalable and event‑loop‑safe
 
-**This project demonstrates how to offload heavy work using:**
-
-- a queue (BullMQ)
-
-- a worker service
-
-- worker threads for CPU isolation
-
-The goal is to show how to avoid blocking the Node.js event loop and how this pattern enables scalable async systems.
+This project demonstrates how to offload heavy work using A queue (BullMQ), A worker service, and worker threads for CPU isolation . So, the goal is to show how to avoid blocking the Node.js event loop and how this pattern enables scalable async systems
 
 **Architecture Flow**
 
