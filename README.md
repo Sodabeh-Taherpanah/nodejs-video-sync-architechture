@@ -1,50 +1,87 @@
 node-video-async-architecture
-A minimal, example demonstrating how to design asynchronous video processing architecture in Node.js using:
+A small, focused example showing how to build an asynchronous video‑processing architecture in Node.js using:
 
-1. Worker Threads for CPU heavy tasks
+Worker Threads → for CPU‑heavy tasks
 
-2. Job Queues for background processing
+BullMQ Job Queue → for background processing
 
-3. Decoupled API + Worker model
+API + Worker separation → clean service boundaries
 
-4. Clean async flow suitable for scalable systems
+Non‑blocking async flow → scalable and event‑loop‑safe
 
-It means that, this repo demonstrates how to offload heavy work using: a queue (BullMQ), a worker service and worker threads for CPU isolation and How to avoid blocking the Node.js event loop and with this approach we can easily build scalable async systems in Node.js.
+This project demonstrates how to offload heavy work using:
 
-This project is intentionally small and focused.Its goal is to show architecture
+a queue (BullMQ)
 
-Flow is : API
+a worker service
 
-1. Receives a request (e.g., “process this video”), validates input, and pushes a job into the queue.
+worker threads for CPU isolation
 
-2. The Queue stores pending jobs and ensures they are processed asynchronously.
+The goal is to show how to avoid blocking the Node.js event loop and how this pattern enables scalable async systems.
 
-3. The _Worker_ Listens to the queue and executes jobs.
+Architecture Flow
 
-4. The _ Worker Thread _ Handles CPU‑heavy video processing without blocking the event loop.
+1. API
+   Receives a request (e.g., “process this video”)
 
-Installation :
-git clone https://github.com/<your-username>/node-video-async-architecture cd node-video-async-architecture
+Validates input
+
+Pushes a job into the queue
+
+2. Queue
+   Stores pending jobs
+
+Ensures they are processed asynchronously
+
+3. Worker
+   Listens to the queue
+
+Executes jobs as they arrive
+
+4. Worker Thread
+   Handles CPU‑heavy video processing
+
+Keeps the main event loop free and responsive
+
+\*\*Installation
+
+git clone https://github.com/<your-username>/node-video-async-architecture
+cd node-video-async-architecture
 npm install
 
-Start Api: npm run api
-Start the Worker: npm run worker
+Running the System
 
-For testing Async flow
+1. Start Redis (Docker)
 
-- Send a video processing request with curl or postman:
+docker run -p 6379:6379 redis
 
-curl -X POST http://localhost:3000/process \ -H "Content-Type: application/json" \ -d '{"filePath": "sample.mp4"}'
+2. Start the API
 
-Expected response can be like it :
+npm run api 3. Start the Worker
 
-{ "status": "queued", "jobId": "12345" }
+npm run worker
 
-- Check worker log like:
-  Job received: 12345
-  Processing video...
-  Video processed successfully.
+\*\* Testing the Async Flow
 
-\*\*Note:
+Send a request using curl or Postman:
 
-This is a minimal architecture example, not a production ready video processor.
+bash
+curl -X POST http://localhost:3000/process \
+ -H "Content-Type: application/json" \
+ -d '{"filePath": "sample.mp4"}'
+Expected API Response
+json
+{
+"status": "queued",
+"jobId": "12345"
+}
+
+Expected Worker Output
+Code
+Job received: 12345
+Processing video...
+Video processed successfully.
+
+Note
+This is a minimal architecture example meant to demonstrate async design patterns.
+It is not a production‑ready video processor.
