@@ -1,15 +1,16 @@
-node-video-async-architecture
+**node-video-async-architecture**
+
 A small, focused example showing how to build an asynchronous video‑processing architecture in Node.js using:
 
-Worker Threads → for CPU‑heavy tasks
+- Worker Threads → for CPU‑heavy tasks
 
-BullMQ Job Queue → for background processing
+- BullMQ Job Queue → for background processing
 
-API + Worker separation → clean service boundaries
+- API + Worker separation → clean service boundaries
 
-Non‑blocking async flow → scalable and event‑loop‑safe
+- Non‑blocking async flow → scalable and event‑loop‑safe
 
-This project demonstrates how to offload heavy work using:
+**This project demonstrates how to offload heavy work using:**
 
 a queue (BullMQ)
 
@@ -19,7 +20,7 @@ worker threads for CPU isolation
 
 The goal is to show how to avoid blocking the Node.js event loop and how this pattern enables scalable async systems.
 
-Architecture Flow
+**Architecture Flow**
 
 1. API
    Receives a request (e.g., “process this video”)
@@ -45,8 +46,9 @@ Keeps the main event loop free and responsive
 
 \*\*Installation
 
-git clone https://github.com/<your-username>/node-video-async-architecture
-cd node-video-async-architecture
+`git clone https://github.com/<your-username>/node-video-async-architecture
+cd node-video-async-architecture`
+
 npm install
 
 Running the System
@@ -65,23 +67,24 @@ npm run worker
 
 Send a request using curl or Postman:
 
-bash
-curl -X POST http://localhost:3000/process \
- -H "Content-Type: application/json" \
- -d '{"filePath": "sample.mp4"}'
-Expected API Response
-json
-{
-"status": "queued",
-"jobId": "12345"
-}
+`curl -X POST http://localhost:3000/process \
+  -H "Content-Type: application/json" \
+  -d '{"filePath": "sample.mp4"}' `
 
-Expected Worker Output
-Code
+Expected API Response
+`
+  {
+  "status": "queued",
+  "jobId": "12345"
+  }`
+
+Expected Worker logs:
+`
 Job received: 12345
 Processing video...
-Video processed successfully.
+Video processed successfully.`
 
-Note
+**Note**
+
 This is a minimal architecture example meant to demonstrate async design patterns.
 It is not a production‑ready video processor.
