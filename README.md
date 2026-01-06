@@ -79,7 +79,7 @@ Send a request using curl or Postman:
 
 Expected API Response
 
-````{
+```{
 "status": "queued",
 "jobId": "12345"
 }```
