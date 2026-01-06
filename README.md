@@ -65,15 +65,12 @@ Expected API Response
 
 Expected Worker logs:
 
-````Job received: 12345
+`Job received: 12345
 Processing video...
-Video processed successfully.```
+Video processed successfully.`
 
 **Note**
 
 1. This is a minimal architecture example meant to demonstrate async design patterns.
 
 2. This is not a video upload(sample.mp4) , here the API only receives a file path string, because the architecture is designed for background processing, not handling raw video uploads.
-
-
-````
