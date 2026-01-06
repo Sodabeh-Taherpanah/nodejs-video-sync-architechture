@@ -44,12 +44,15 @@ Executes jobs as they arrive
 
 Keeps the main event loop free and responsive
 
-\*\*Installation
+**Clone Repository:**
 
 ```
-git clone https://github.com/<your-username>/node-video-async-architecture
+git clone https://github.com/Sodabeh-Taherpanah/nodejs-video-sync-architechture.git
+
 cd node-video-async-architecture
 ```
+
+**Installation**
 
 `npm install`
 
