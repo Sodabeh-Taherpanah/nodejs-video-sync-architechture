@@ -13,26 +13,16 @@ This project demonstrates how to offload heavy work using A queue (BullMQ), A wo
 **Architecture Flow**
 
 1. API
-   Receives a request (e.g., “process this video”)
-
-Validates input
-
-Pushes a job into the queue
+   Receives a request (e.g., “process this video”) then Validates input and Pushes a job into the queue
 
 2. Queue
-   Stores pending jobs
-
-Ensures they are processed asynchronously
+   Stores pending jobs and ensures they are processed asynchronously
 
 3. Worker
-   Listens to the queue
-
-Executes jobs as they arrive
+   Listens to the queue and executes jobs as they arrive
 
 4. Worker Thread
-   Handles CPU‑heavy video processing
-
-Keeps the main event loop free and responsive
+   Handles CPU heavy video processing and keeps the main event loop free and responsive
 
 **Clone Repository:**
 
