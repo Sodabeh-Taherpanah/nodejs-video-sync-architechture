@@ -71,6 +71,9 @@ Video processed successfully.```
 
 **Note**
 
-This is a minimal architecture example meant to demonstrate async design patterns.
+1. This is a minimal architecture example meant to demonstrate async design patterns.
+
+2. This is not a video upload(sample.mp4) , here the API only receives a file path string, because the architecture is designed for background processing, not handling raw video uploads.
+
 
 ````
