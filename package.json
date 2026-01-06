@@ -1,0 +1,36 @@
+{
+  "name": "node-async-architecture",
+  "version": "1.0.0",
+  "description": "Advanced Node.js async architecture using BullMQ, Worker Threads, microtasks, and a worker thread pool.",
+  "main": "src/api/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/api/server.js",
+    "worker": "node src/queue/worker.js",
+    "dev": "nodemon src/api/server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "bullmq",
+    "worker-threads",
+    "async",
+    "queue",
+    "redis",
+    "microtasks",
+    "architecture"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bullmq": "^5.0.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.19.0",
+    "ioredis": "^5.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
