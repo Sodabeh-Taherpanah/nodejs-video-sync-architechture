@@ -1,6 +1,4 @@
-**node-video-async-architecture**
-
-A small, focused example showing how to build an asynchronous video‑processing architecture in Node.js using:
+Here is a small test, focused example showing how to build an asynchronous video‑processing architecture in Node.js using:
 
 - Worker Threads → for CPU‑heavy tasks
 
@@ -66,7 +64,7 @@ Running the System
 
 `npm run api `
 
-````
+`````
 3. Start the Worker
 
 ```npm run worker```
@@ -79,17 +77,19 @@ Send a request using curl or Postman:
   -H "Content-Type: application/json" \
   -d '{"filePath": "sample.mp4"}'```
 
-Expected API Response
-````
 
-{
+
+Expected API Response
+
+````{
 "status": "queued",
 "jobId": "12345"
 }```
 
 Expected Worker logs:
 
-````
+`````
+
 Job received: 12345
 Processing video...
 Video processed successfully.```
@@ -98,4 +98,3 @@ Video processed successfully.```
 
 This is a minimal architecture example meant to demonstrate async design patterns.
 It is not a production‑ready video processor.
-````
