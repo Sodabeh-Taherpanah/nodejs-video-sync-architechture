@@ -1,3 +1,6 @@
+*This project provides a clean, minimal architecture that demonstrates how to handle CPU‑intensive video processing in Node.js without blocking the event loop. It showcases a production‑friendly pattern where the API simply enqueues work, while a dedicated worker service—powered by BullMQ and Worker Threads—executes the heavy tasks in isolation. The goal is to illustrate how to design scalable, asynchronous systems that remain responsive under load by separating request handling from background computation.8
+
+
 Here is a small test, focused example showing how to build an asynchronous video‑processing architecture in Node.js using:
 
 - Worker Threads → for CPU‑heavy tasks
@@ -8,12 +11,11 @@ Here is a small test, focused example showing how to build an asynchronous video
 
 - Non‑blocking async flow → scalable and event‑loop‑safe
 
-This project demonstrates how to offload heavy work using A queue (BullMQ), A worker service, and worker threads for CPU isolation . So, the goal is to show how to avoid blocking the Node.js event loop and how this pattern enables scalable async systems
 
 **Architecture Flow**
 
 1. API
-   Receives a request (e.g., “process this video”) then Validates input and Pushes a job into the queue
+   Receives a request (e.g., “process this video”), then Validates input and pushes a job into the queue
 
 2. Queue
    Stores pending jobs and ensures they are processed asynchronously
